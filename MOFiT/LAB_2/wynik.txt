@@ -1,0 +1,8 @@
+zad 1		TIME [s] :	  31.406594
+zad 2		TIME [s] :	  131.643545
+zad 3 1000	TIME [s] :	  20.634950 
+zad 3 100	TIME [s] :	  65.127048 
+zad 4 1000	TIME [s] :	  0.159316
+zad 4 100	TIME [s] :	  0.253909 
+zad 4 1		TIME [s] :	  0.671793 
+
