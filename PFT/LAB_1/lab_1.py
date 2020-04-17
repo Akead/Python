@@ -172,7 +172,7 @@ def zadanie_1():
 	B = wahadlo("Analitycznie: $\phi(t=0)$ = 4°", "green", deg_to_rad(4))
 	B.analitycznie()
 
-	l = [A,B]
+	l = [B,A]
 
 	rysuj(l,1,0,"t [s]", '$\phi$ [rad]', "zad_1")
 
