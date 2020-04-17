@@ -218,7 +218,7 @@ def zadanie_2():
 
 def zadanie_3():
 
-	data = numpy.linspace(1e-3,numpy.pi-1e-3,360)
+	data = numpy.linspace(deg_to_rad(5),numpy.pi-1e-3,360)
 	L = [wahadlo('','', i) for i in data]
 	
 	phi = []
@@ -251,7 +251,7 @@ def zadanie_3():
 	if draw_chart:
 		plt.show()
 
-#zadanie_3()
+zadanie_3()
 
 
 
