@@ -412,7 +412,7 @@ class energia_srednia_struny:
 
 		ax.grid()
 
-		ax.set(xlabel = '$\omega \cdot \pi$ ', ylabel = '<E>', title = '$<E>(\omega)$')
+		ax.set(xlabel = '$\\frac{\omega}{\pi}$ ', ylabel = '<E>', title = '$<E>(\omega)$')
 		ax.xaxis.label.set_size(18)
 		ax.yaxis.label.set_size(18)
 		ax.title.set_size(18)
@@ -477,19 +477,19 @@ def zad_4_1():
 	u_x_0 = numpy.zeros(N)
 	a = energia_srednia_struny(16,20,1,0*numpy.pi,10*numpy.pi,100, 0.5, u_x_0)
 	a.cal_energia_srednia()
-	a.rysuj('zad_4_1')
+	a.rysuj('zad_4_1',False)
 
 def zad_4_2():
 	u_x_0 = numpy.zeros(N)
 	a = energia_srednia_struny(16,20,1,0,10*numpy.pi,100, 0.4, u_x_0)
 	a.cal_energia_srednia()
-	a.rysuj('zad_4_2')
+	a.rysuj('zad_4_2',False)
 
 def zad_4_3():
 	u_x_0 = numpy.zeros(N)
 	a = energia_srednia_struny(16,20,1,0,10*numpy.pi,100, 0.25, u_x_0)
 	a.cal_energia_srednia()
-	a.rysuj('zad_4_3')
+	a.rysuj('zad_4_3',False)
 #-------------------- WYKONANIE ---------------------#
 
 #zad_1()
