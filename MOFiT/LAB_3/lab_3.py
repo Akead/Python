@@ -39,7 +39,7 @@ class struna:
 		self.v_0 = v_0
 		self.t_s = t_s
 		self.t_k = t_k
-		self.t = numpy.arange(self.t_s, self.t_k + self.dt, self.dt)
+		self.t = numpy.arange(0, self.t_k + self.dt, self.dt)
 		self.u_x_t.append(self.u_0)
 		self.v_x_t.append(self.v_0)
 
@@ -80,28 +80,30 @@ class struna:
 		if save:
 			ax.get_figure().savefig(nazwa + ".png")
 
-	def energia_srednia(self):
+	def energia_srednia(self,ts,tk):
 
 		
 		def helper_u(l):
 
 			du = [0]
-			for i in range(len(l) - 1):
-				d = (l[i+1] - l[i])/(2*self.dx)
+			for i in range(1, len(l) - 1):
+				d = (l[i+1] - l[i-1])/(self.dx*2)
 				du.append(d)
 			du.append(0)
 			return du
 
 		E_sr = 0
 
-		for i in range(len(self.t)):
+		s_i = int(ts/tk * len(self.t))
+		k_i = len(self.t)
+		for i in range(s_i, k_i):
 			u_x = self.u_x_t[i]
 			v_x = self.v_x_t[i]
 			E_V = 0
 			E_U = 0
 			du = helper_u(u_x)
 
-			for k in range(1,self.N):
+			for k in range(self.N):
 				E_v = v_x[k]**2 * self.dx
 				E_V += E_v
 				E_u = du[k]**2 * self.dx
@@ -393,7 +395,7 @@ class energia_srednia_struny:
 	def cal_energia_srednia(self):
 		for i in self.struny:
 			i.verleta_sztywne()
-			self.energia_srednia.append(i.energia_srednia())
+			self.energia_srednia.append(i.energia_srednia(self.t_s, self.t_k))
 	
 	def wypisz(self):
 		return self.energia_srednia
@@ -473,9 +475,9 @@ def zad_3():
 
 def zad_4_1():
 	u_x_0 = numpy.zeros(N)
-	a = energia_srednia_struny(16,20,1,-5*numpy.pi,5*numpy.pi,100, 0.5, u_x_0)
+	a = energia_srednia_struny(16,20,1,0*numpy.pi,10*numpy.pi,100, 0.5, u_x_0)
 	a.cal_energia_srednia()
-	a.rysuj('zad_4_1_1')
+	a.rysuj('zad_4_1')
 
 def zad_4_2():
 	u_x_0 = numpy.zeros(N)
@@ -498,7 +500,9 @@ def zad_4_3():
 
 zad_4_1()
 
-#zad_4_2()
+zad_4_2()
 
-#zad_4_3()
+zad_4_3()
+
+
 
