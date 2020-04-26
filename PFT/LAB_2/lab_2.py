@@ -180,7 +180,7 @@ class bound_particle:
 		self.__plot(self.__t, self.__Energy, 't', 'E', 'E(t)', self.__name + 'E_t')
 
 		x, y, z = self.__rotate_kartesian()
-		self.__plot_3D(x, y, z, "x'", "y'", "z'", '$\\vec{r}(x,y,z)$', self.__name + '3d')
+		self.__plot_3D(x, y, z, "x'", "y'", "z'", "$\\vec{r'}(x',y',z')$", self.__name + '3d')
 
 #----------------------- EXECUTION --------------------------
 
@@ -193,16 +193,16 @@ def Exe(s, a, N = 500):
 
 
 s_1 = numpy.array([1.1, 1, 0, 0])
-#Exe(s_1, 'A')
+Exe(s_1, 'A')
 
 s_2 = numpy.array([1.1, 0.5, 0, 0])
-#Exe(s_2, 'B')
+Exe(s_2, 'B')
 
 s_3 = numpy.array([2.2, 1, 0, 0])
-#Exe(s_3, 'C')
+Exe(s_3, 'C')
 
 s_4 = numpy.array([1.1, 1, 0, 5])
-#Exe(s_4, 'D')
+Exe(s_4, 'D')
 
 s_5 = numpy.array([1.1, 1, 2, 0])
 Exe(s_5, 'F')
