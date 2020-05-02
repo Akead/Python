@@ -201,7 +201,7 @@ class draw_plots:
 		self.__Energy = [i.return_resoults()[3] for i in self.__L]
 		self.__t = [i.return_resoults()[4] for i in self.__L]
 
-	def __plot(self, X, Y, x_label, y_label, label, save_name, draw = draw_chart, save = True):
+	def __plot(self, X, Y, x_label, y_label, label, save_name, size_x = 18.5, draw = draw_chart, save = True):
 
 		#Figure
 		fig, ax = plt.subplots()
@@ -224,7 +224,7 @@ class draw_plots:
 		ax.xaxis.label.set_size(18)
 		ax.yaxis.label.set_size(18)
 		fig = plt.gcf()
-		fig.set_size_inches(18.5, 10.5, forward = True)
+		fig.set_size_inches(size_x, 10.5, forward = True)
 
 		if save:
 			fig.savefig(save_name+'.png', dpi = 100)
@@ -242,7 +242,7 @@ class draw_plots:
 		p_r = numpy.rot90(self.__momentums)[2]
 		p_f = numpy.rot90(self.__momentums)[1]
 
-		self.__plot(x, y, 'x(t)', 'y(t)', "$\\vec{r'}$", 'xy_t')
+		self.__plot(x, y, 'x(t)', 'y(t)', "$\\vec{r'}$", 'xy_t', 10.5)
 		self.__plot(self.__t, self.__Energy, 't', 'E', 'E(t)', 'E_t')
 		self.__plot(self.__t, r, 't', 'r', 'r(t)', 'r_t')
 		self.__plot(self.__t, phi, 't', '$\phi$', '$\phi (t)$', 'phi_t')
@@ -265,7 +265,7 @@ def Exe(N = N):
 	C.calculate()
 
 	s_4 = [2, 0, 0, 2, -2, 0]
-	D = charged_particle(N, s_4, 'III', 'darkgreen','', 'dotted', 2)
+	D = charged_particle(N, s_4, 'IV', 'darkgreen','', 'dotted', 2)
 	D.calculate()
 
 	L = [A, B, C, D]
