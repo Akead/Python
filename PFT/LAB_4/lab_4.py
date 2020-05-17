@@ -190,7 +190,7 @@ class resonanse_atoms_chain(atoms_chain):
 		self._alpha = alpha
 		self._delta = delta
 		self._m = m
-		self._omega_n = 2* numpy.sqrt(self._alpha/self._m) * abs(numpy.sin(self._n*numpy.pi/(2*self._N)))
+		self._omega_n = 2* numpy.sqrt(self._alpha/self._m) * abs(numpy.sin(self._n*numpy.pi/(2*(self._N-1))))
 		self._t_max = 20*2*numpy.pi/self._omega_n
 		self._nt = int(self._t_max/self._dt)
 		self._x_t = [x_0]
@@ -252,15 +252,16 @@ def zad_2(n, nazwa_1, nazwa_2):
 	A.calculate()
 	A.rysuj_heat(nazwa_1, 400)
 	A.rysuj(nazwa_2, 400)
+	del A
 
-zad_1()
+#zad_1()
 
 #zad_2(0.9, 'zad_2_H_09', 'zad_2_E_09')
 #zad_2(1, 'zad_2_H_1', 'zad_2_E_1')
 #zad_2(1.1, 'zad_2_H_11', 'zad_2_E_11')
 #zad_2(1.5, 'zad_2_H_15', 'zad_2_E_15')
 #zad_2(2, 'zad_2_H_20', 'zad_2_E_20')
-#zad_2(5, 'zad_2_H_50', 'zad_2_E_50')
+zad_2(5, 'zad_2_H_50', 'zad_2_E_50')
 
 
 
