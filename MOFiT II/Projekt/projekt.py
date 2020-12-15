@@ -436,7 +436,7 @@ def zadanie_5(options, name):
             q = (Object.wave_function_value(r, E[1]))
             fi[i].append(q)
 
-    options = {'name' : 'rozklad_ladunku', 'title' : 'Rozkład ładunku wyrażony jako funkcja $\\varphi(\\vec{r})$','xlabel': 'Position x [nm]', 'ylabel': 'Position y [nm]' ,
+    options = {'name' : 'rozklad_ladunku', 'title' : 'Rozkład ładunku wyrażony jako funkcja $\\varphi(\\vec{r} = (x,0,z))$','xlabel': 'Oś x [nm]', 'ylabel': 'Oś z [nm]' ,
             'no_save': True, 'plot': False,
             'colorbar_title': '$\\varphi(\\vec{r})$', 'extent': [-0.2, 0.2, -0.2, 0.2], 'heatmap_color': 'BuPu'}
 
