@@ -68,7 +68,7 @@ class Atomic_Unit:
 class Plot_Imshow():
 
     def __init__(self, data, **kwargs):
-        self._data = data[::-1] if kwargs.setdefault('no_y_inverse', True) else data 
+        self._data = data[::-1] if kwargs.setdefault('no_y_inverse', True) else data
         self._kwargs = kwargs
 
     def _set_figure(self):
@@ -408,7 +408,7 @@ def zadanie_4(options, name):
     E_bind = - numpy.array(E_tot) - Atomic_Unit.Hartree2milieV(1/2)/1000 
     E_teor = numpy.array([2.793 for _ in X])
 
-    l = [(a, Eb) for a, Eb, Et in zip(X, E_bind, E_tot) if Eb >= Et ]
+    l = [(a, Eb) for a, Eb, Et in zip(X, E_bind, E_tot) if Eb >= 0 ]
     print('Wartość minimalna 2a {:.3f} (E_bind = {:.4f} [ev]). Wartość maksymalna 2a {:.3f} (E_bind = {:.4f} [ev])\n'.format(l[0][0], l[0][1], l[-1][0], l[-1][1]))
 
     legends = [
@@ -440,7 +440,7 @@ def zadanie_5(options, name):
             'no_save': True, 'plot': False,
             'colorbar_title': '$\\varphi(\\vec{r})$', 'extent': [-0.2, 0.2, -0.2, 0.2], 'heatmap_color': 'BuPu'}
 
-    Plot_Imshow(fi, **options).plot()
+    Plot_Imshow(numpy.rot90(fi), **options).plot()
 
 
 
